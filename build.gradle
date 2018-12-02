@@ -6,9 +6,9 @@ apply plugin: 'signing'
 
 Jar Files
 group 'me.xethh.utils'
-version '1.0-SNAPSHOT'
+version '1.1-RELEASE'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.7
 
 repositories {
     mavenCentral()
@@ -16,14 +16,17 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    testCompile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14
+    testCompile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.25'
+
+
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-}
-artifacts {
-    archives javadocJar, sourcesJar
 }
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
-    from javadoc
+    from javadoc.destinationDir
 }
 
 task sourcesJar(type: Jar) {
@@ -31,6 +34,9 @@ task sourcesJar(type: Jar) {
     from sourceSets.main.allSource
 }
 
+artifacts {
+    archives javadocJar, sourcesJar
+}
 signing {
     sign configurations.archives
 }
@@ -48,16 +54,16 @@ uploadArchives {
             }
 
             pom.project {
-                name 'Example Application'
+                name 'JDBCProvider'
                 packaging 'jar'
                 // optionally artifactId can be defined here
                 description 'Library providing easy access and general entry JDBC'
-                url 'http://www.example.com/example-application'
+                url 'https://xeth0102.atlassian.net/wiki/spaces/DAT/overview'
 
                 scm {
-                    connection 'scm:svn:http://foo.googlecode.com/svn/trunk/'
-                    developerConnection 'scm:svn:https://foo.googlecode.com/svn/trunk/'
-                    url 'http://foo.googlecode.com/svn/trunk/'
+                    connection 'scm:git:git://bitbucket.org/XH12/jdbcprovider.git'
+                    developerConnection 'scm:git:ssh://bitbucket.org/XH12/jdbcprovider.git'
+                    url 'https://bitbucket.org/xethhme/dateutils/src'
                 }
 
                 licenses {
@@ -69,7 +75,6 @@ uploadArchives {
 
                 developers {
                     developer {
-                        id 'manfred'
                         name 'Xeth Hung'
                         email 'admin@xethh.me'
                     }

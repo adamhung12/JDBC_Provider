@@ -1,3 +1,4 @@
+package me.xethh.utils.JDBCProvider;
 public enum  JDBCDrivers {
     Mysql("com.mysql.jdbc.Driver"),Mysql_New("com.mysql.cj.jdbc.Driver");
     JDBCDrivers(String driverName){

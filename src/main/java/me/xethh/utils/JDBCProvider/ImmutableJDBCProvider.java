@@ -1,16 +1,18 @@
+package me.xethh.utils.JDBCProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class JDBCProvider {
+public class ImmutableJDBCProvider implements JDBCProvider{
+    protected Logger logger = LoggerFactory.getLogger(ImmutableJDBCProvider.class);
 
-    String jdbcDriver;
-    String connectionString;
-    String username;
-    String password;
-    protected JDBCProvider(String jdbcDriver, String  connectionString, String username, String password){
+    protected String jdbcDriver;
+    protected String connectionString;
+    protected String username;
+    protected String password;
+    protected ImmutableJDBCProvider(String jdbcDriver, String  connectionString, String username, String password){
         this.jdbcDriver = jdbcDriver;
         this.connectionString = connectionString;
         this.username = username;
@@ -18,7 +20,6 @@ public class JDBCProvider {
     }
 
     public Connection getConnection(){
-        Logger logger = LoggerFactory.getLogger(JDBCProvider.class);
         logger.info("Start obtaining jdbc connection");
         try{
             logger.info("Driver name: "+jdbcDriver);
