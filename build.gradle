@@ -1,12 +1,21 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.adaptc.gradle:nexus-workflow:0.6'
+    }
+}
 plugins {
     id 'java'
 }
+apply plugin: 'nexus-workflow'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
 Jar Files
 group 'me.xethh.utils'
-version '1.1-RELEASE'
+version '1.1.1-RELEASE'
 
 sourceCompatibility = 1.7
 
