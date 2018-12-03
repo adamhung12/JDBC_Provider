@@ -10,6 +10,19 @@ version '1.1-RELEASE'
 
 sourceCompatibility = 1.7
 
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }
