@@ -41,7 +41,7 @@ public class TestOne {
 
     }
 
-    @Test
+    // @Test
     public void testConnection(){
         JDBCProvider conn = JDBCProviderFactory.mysqlProvider(
                 ConnectionString.Builder().host("localhost:3306").name("testing").useUnicode().utf8Encoding().serverTimezoneP8().build()
@@ -59,7 +59,7 @@ public class TestOne {
             e.printStackTrace();
         }
     }
-    @Test
+    // @Test
     public void testConnectionPersisted(){
         JDBCProvider conn = JDBCProviderFactory.mysqlProvider(
                 ConnectionString.Builder().host("localhost:3306").name("testing").useUnicode().utf8Encoding().serverTimezoneP8().build()
