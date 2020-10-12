@@ -13,9 +13,8 @@ apply plugin: 'nexus-workflow'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-Jar Files
 group 'me.xethh.utils'
-version '1.1.1-RELEASE'
+version '1.1.2'
 
 sourceCompatibility = 1.7
 
@@ -42,7 +41,6 @@ dependencies {
     testCompile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14
     testCompile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.25'
-
 
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 }
@@ -79,7 +77,7 @@ uploadArchives {
                 name 'JDBCProvider'
                 packaging 'jar'
                 // optionally artifactId can be defined here
-                description 'Library providing easy access and general entry JDBC'
+                description 'Library providing easy access and general entry of mysql JDBC (Personal use only, not ready for production gradle env!!!)'
                 url 'https://xeth0102.atlassian.net/wiki/spaces/DAT/overview'
 
                 scm {

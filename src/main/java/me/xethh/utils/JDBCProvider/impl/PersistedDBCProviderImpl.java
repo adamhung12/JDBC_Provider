@@ -1,12 +1,14 @@
-package me.xethh.utils.JDBCProvider;
+package me.xethh.utils.JDBCProvider.impl;
+
+import me.xethh.utils.JDBCProvider.PersistedJDBCProvider;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class PersistedDBCProviderImpl extends ImmutableJDBCProvider implements PersistedJDBCProvider{
+public class PersistedDBCProviderImpl extends ImmutableJDBCProvider implements PersistedJDBCProvider {
     protected Connection _conn;
 
-    protected PersistedDBCProviderImpl(String jdbcDriver, String  connectionString, String username, String password){
+    public PersistedDBCProviderImpl(String jdbcDriver, String  connectionString, String username, String password){
         super(jdbcDriver,connectionString,username,password);
     }
 

@@ -1,9 +1,10 @@
 package me.xeth.utils.JDBCProvider;
 
-import me.xethh.utils.JDBCProvider.ImmutableJDBCProvider;
+import me.xethh.utils.JDBCProvider.ConnectionString;
 import me.xethh.utils.JDBCProvider.JDBCProvider;
 import me.xethh.utils.JDBCProvider.JDBCProviderFactory;
 import me.xethh.utils.JDBCProvider.PersistedJDBCProvider;
+import me.xethh.utils.JDBCProvider.impl.ImmutableJDBCProvider;
 import org.junit.Test;
 import org.slf4j.LoggerFactory;
 
@@ -26,9 +27,25 @@ public class TestOne {
         handler.setFormatter(new SimpleFormatter());
         log.addHandler(handler);
     }
+
+    @Test
+    public void testConnectionStringBuilder(){
+        String str = ConnectionString.Builder()
+                .host("localhost:3306")
+                .name("testing")
+                .useUnicode()
+                .utf8Encoding()
+                .build();
+
+        assertEquals(str, "jdbc:mysql://localhost:3306/testing?useUnicode=yes&characterEncoding=UTF8");
+
+    }
+
     @Test
     public void testConnection(){
-        JDBCProvider conn = JDBCProviderFactory.mysqlProvider("jdbc:mysql://localhost:3306/testing?useUnicode=yes&amp&characterEncoding=UTF-8", "testing", "testing");
+        JDBCProvider conn = JDBCProviderFactory.mysqlProvider(
+                ConnectionString.Builder().host("localhost:3306").name("testing").useUnicode().utf8Encoding().serverTimezoneP8().build()
+                , "testing", "testing");
         try {
             logger.info("Compare one time connection");
             logger.info(conn.getConnection().toString());
@@ -44,7 +61,10 @@ public class TestOne {
     }
     @Test
     public void testConnectionPersisted(){
-        JDBCProvider conn = JDBCProviderFactory.mysqlProvider("jdbc:mysql://localhost:3306/testing?useUnicode=yes&amp&characterEncoding=UTF-8", "testing", "testing");
+        JDBCProvider conn = JDBCProviderFactory.mysqlProvider(
+                ConnectionString.Builder().host("localhost:3306").name("testing").useUnicode().utf8Encoding().serverTimezoneP8().build()
+                , "testing", "testing"
+        );
         String conn1Str = conn.getConnection().toString();
         String conn2Str = conn.getConnection().toString();
         logger.info("Compare non persisted connection");
@@ -52,7 +72,9 @@ public class TestOne {
         logger.info(conn.getConnection().toString());
         logger.info(conn.getConnection().toString());
 
-        PersistedJDBCProvider conn2 = JDBCProviderFactory.mysqlPersistedProvider("jdbc:mysql://localhost:3306/explorer_playgroup?useUnicode=yes&amp&characterEncoding=UTF-8", "explorer_playgroup", "explorer_playgroup");
+        PersistedJDBCProvider conn2 = JDBCProviderFactory.mysqlPersistedProvider(
+                ConnectionString.Builder().host("localhost:3306").name("testing").useUnicode().utf8Encoding().serverTimezoneP8().build()
+                , "testing", "testing");
         try {
             logger.info("Compare persisted connection");
             String conn2_1String = conn2.getConnection().toString();
