@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>bom-common</artifactId>
+        <groupId>dev.xethh.libs.toolkits</groupId>
+        <version>1.0.2</version>
+    </parent>
+
+    <groupId>me.xethh.utils</groupId>
+    <artifactId>JDBCProvider</artifactId>
+    <version>1.1.3</version>
+
+    <name>JDBCProvider</name>
+
+    <url>https://github.com/xh-dev/JDBC_Provider</url>
+    <description>Library providing easy access and general entry of mysql JDBC (Personal use only, not ready for production gradle env!!!)</description>
+
+    <scm>
+        <connection>scm:git:git://github.com/xh-dev/JDBC_Provider.git</connection>
+        <developerConnection>scm:git:ssh://github.com:xh-dev/JDBC_Provider.git</developerConnection>
+        <url>https://github.com/xh-dev/JDBC_Provider</url>
+    </scm>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.5</version>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+
+    </dependencyManagement>
+
+    <build>
+    </build>
+</project>
