@@ -22,7 +22,7 @@ public class JDBCProviderFactory {
         config.setPassword(password);
         config.addDataSourceProperty("cachePrepStmts",true);
         config.addDataSourceProperty("prepStmtCacheSize",512);
-        config.addDataSourceProperty("prepStmtCacheSqlLimit",true);
+        config.addDataSourceProperty("prepStmtCacheSqlLimit",2048);
         config.addDataSourceProperty("useServerPrepStmts",true);
         config.addDataSourceProperty("useLocalSessionState",true);
         config.addDataSourceProperty("rewriteBatchedStatements",true);

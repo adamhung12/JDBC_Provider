@@ -12,7 +12,7 @@
 
     <groupId>me.xethh.utils</groupId>
     <artifactId>JDBCProvider</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.4</version>
 
     <name>JDBCProvider</name>
 
